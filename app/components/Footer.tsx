@@ -5,7 +5,7 @@ import { MdEmail, MdPhone } from 'react-icons/md';
 function Footer() {
   return (
     <div className="bg-slate-100">
-      <div className="h-60 mx-2 my-10 md:mx-[15%] flex">
+      <div className="h-52 mx-2 my-10 md:mx-[15%] flex">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-evenly w-full">
           <div className="flex flex-col space-y-8 mb-8">
             <h3 className="pl-5 text-lg font-semibold">
