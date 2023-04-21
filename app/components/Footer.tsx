@@ -4,21 +4,21 @@ import { MdEmail, MdPhone } from 'react-icons/md';
 
 function Footer() {
   return (
-    <div className="bg-slate-100">
-      <div className="h-52 mx-2 my-10 md:mx-[15%] flex">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-evenly w-full">
-          <div className="flex flex-col space-y-8 mb-8">
+    <div className="grow bg-slate-100">
+      <div className="h-52 mx-2 my-10 md:mx-[15%] flex ">
+        <div className="grid w-full md:grid-cols-2 lg:grid-cols-3 justify-evenly">
+          <div className="flex flex-col mb-8 space-y-8">
             <h3 className="pl-5 text-lg font-semibold">
               <span className="text-red-500">K</span>ontakt
             </h3>
             <div className="flex flex-col space-y-4 text-xs">
               <p className="font-semibold">Advokátska kancelária JUDr. Jaroslav Čibenka s.r.o.</p>
               <p>F. Urbánka 797/14, 020 01 Púchov</p>
-              <div className="flex space-x-1 items-center">
+              <div className="flex items-center space-x-1">
                 <MdPhone />
                 <a href="tel:+421 940 505 051">+421 940 505 051</a>
               </div>
-              <div className="flex space-x-1 items-center">
+              <div className="flex items-center space-x-1">
                 <MdEmail />
                 <a href="mailto:office@cibenka.sk">office@cibenka.sk</a>
               </div>

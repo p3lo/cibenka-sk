@@ -14,7 +14,9 @@ export default function Index() {
       <div className="flex-1">
         <Outlet />
       </div>
-      <Footer />
+      <div className="flex">
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
+  serverDependenciesToBundle: ['swiper', 'swiper/react', 'swiper/swiper-bundle.css', 'ssr-window', 'marked'],
   ignoredRouteFiles: ['**/.*'],
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",

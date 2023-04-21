@@ -1,12 +1,10 @@
 import React from 'react';
 import { MdEmail, MdPhone, MdFacebook } from 'react-icons/md';
-import { buttonVariants } from './ui/Button';
 import { Link } from '@remix-run/react';
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
@@ -17,32 +15,33 @@ function Header() {
     <div className="flex flex-col">
       <div className="h-10 mx-2 my-[0.5px] md:mx-[15%] flex justify-between text-xs">
         <div className="flex space-x-5">
-          <div className="flex space-x-1 items-center">
+          <div className="flex items-center space-x-1">
             <MdPhone />
             <a href="tel:+421 940 505 051">+421 940 505 051</a>
           </div>
-          <div className="flex space-x-1 items-center">
+          <div className="flex items-center space-x-1">
             <MdEmail />
             <a href="mailto:office@cibenka.sk">office@cibenka.sk</a>
           </div>
         </div>
-        <div className="flex space-x-3 items-center">
+        <div className="flex items-center space-x-3">
           <a
             href="https://www.facebook.com/advokatskakancelariaJUDr.Cibenka/"
             className="p-1 rounded-full hover:bg-gray-200"
           >
-            <MdFacebook className="h-5 w-5" />
+            <MdFacebook className="w-5 h-5" />
           </a>
         </div>
       </div>
-      <div className="border-b flex w-full shadow drop-shadow-md" />
-      <div className="flex justify-center items-center my-5">
+      <div className="flex w-full border-b shadow drop-shadow-md" />
+      <div className="flex items-center justify-center my-5">
         <Link to="/">
           <img alt="Logo" src="assets/cropped-cibo-2-2.png" />
         </Link>
       </div>
       <div className="mx-2 my-[0.5px] md:mx-[15%] flex flex-col">
-        <div className="border-t w-full" />
+        <div className="w-full border-t" />
+
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -241,49 +240,50 @@ function Header() {
               <NavigationMenuTrigger>Služby podľa odvetvia</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:grid-cols-4 lg:w-[700px] xl:w-[900px] 2xl:w-[1100px]">
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     OBČIANSKE PRÁVO
                   </Link>
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     OBCHODNÉ PRÁVO
                   </Link>
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     DAŇOVÉ PRÁVO
                   </Link>
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     EXEKUČNÉ PRÁVO
                   </Link>
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     PRACOVNÉ PRÁVO
                   </Link>
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     DEDIČSKÉ PRÁVO
                   </Link>
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     STAVEBNÉ PRÁVO
                   </Link>
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     KONKURZNÉ PRÁVO
                   </Link>
-                  <Link className="hover:bg-slate-50 font-semibold" to="/">
+                  <Link className="font-semibold hover:bg-slate-50" to="/">
                     SPRÁVNE PRÁVO
                   </Link>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Aktuality</NavigationMenuLink>
+              <Link to="/" className={navigationMenuTriggerStyle()}>
+                Aktuality
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Kontakt</NavigationMenuLink>
+              <Link className={navigationMenuTriggerStyle()} to="/">
+                Kontakt
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="border-b w-full" />
+
+        <div className="w-full border-b" />
       </div>
     </div>
   );
