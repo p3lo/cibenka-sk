@@ -23,7 +23,7 @@ function Main() {
         modules={[Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
         className="hidden w-full h-full border-b shadow lg:block"
       >
         <SwiperSlide>
@@ -37,7 +37,7 @@ function Main() {
                     Sme advokátska kancelária poskytujúca právne služby a právne poradenstvo v oblasti slovenského a
                     českého práva
                   </p>
-                  <Link to="/">Čítaj viac</Link>
+                  <Link to="/o-nas">Čítaj viac</Link>
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@ function Main() {
                 <div className="flex flex-col items-center my-[3%] space-y-3">
                   <h2 className="text-3xl font-bold">Založenie spoločnosti</h2>
                   <p className="font-semibold">Pomôžeme Vám so založením spoločnosti</p>
-                  <Link to="/">Čítaj viac</Link>
+                  <Link to="/sluzby/zalozenie-spolocnosti">Čítaj viac</Link>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ function Main() {
                 <div className="flex flex-col items-center my-[3%] space-y-3">
                   <h2 className="text-3xl font-bold">Pracovné právo</h2>
                   <p className="font-semibold">Podrobné informácie o Novele zákonníka práce</p>
-                  <Link to="/">Čítaj viac</Link>
+                  <Link to="/podla-odvetvia/pracovne-pravo">Čítaj viac</Link>
                 </div>
               </div>
             </div>
@@ -78,37 +78,37 @@ function Main() {
           image={obcianskepravo}
           text="Pomáhame občanom s nájomnými zmluvami, darovacími zmluvami, s dedičským konaním, vymáhaním pohľadávok, so zastupovaním v súdnom, ako i exekučnom konaní."
           title="Občianske právo"
-          link="/"
+          link="/podla-odvetvia/obcianske-pravo"
         />
 
         <InfoCard
           image={obchodnepravo}
           text="Zaoberáme sa obchodnoprávnymi zmluvami a nárokmi, ktoré z nich vznikajú, vymáhaním pohľadávok vzniknutých z obchodnoprávnych vzťahov. Pracujeme na zakladaní spoločností, vykonávaní zmien v spoločnostiach, a tiež na ich rušení."
           title="Obchodné právo"
-          link="/"
+          link="/podla-odvetvia/obchodne-pravo"
         />
 
         <InfoCard
           image={rodinnepravo}
           text="Našich klientov zastupujeme pri rozvodoch, pri vyporiadaní majetku po rozvode, v konaniach o úprave pomerov neplnoletých detí pred a po rozvode manželstva, ako i v konaniach týkajúcich sa vyživovacej povinnosti a podobne."
           title="Rodinné právo"
-          link="/"
+          link="/podla-odvetvia/rodinne-pravo"
         />
 
         <InfoCard
           image={nehnutelnosti}
           text="Zabezpečujeme kompletný poradenský servis vo veciach prevodu nehnuteľností, pri zriadení vecného bremena a predkupného práva k nehnuteľnostiam, ale i pri realizácii záložného práva."
           title="Nehnuteľnosti"
-          link="/"
+          link="/podla-odvetvia/nehnutelnosti"
         />
       </div>
 
       <div className="flex flex-col w-full h-40 space-y-5 bg-slate-200">
         <h2 className="flex items-center justify-center py-5 text-3xl font-semibold">SLUŽBY PRE FIRMY</h2>
         <div className="flex justify-center space-x-5">
-          <Link to="/">Založenie spoločnosti (SRO)</Link>
+          <Link to="/sluzby/zalozenie-spolocnosti">Založenie spoločnosti (SRO)</Link>
           <Separator className="bg-black" orientation="vertical" />
-          <Link to="/">Založenie živnosti (SZČO)</Link>
+          <Link to="/sluzby/zalozenie-zivnosti">Založenie živnosti (SZČO)</Link>
         </div>
       </div>
       <div className="flex flex-col">
@@ -118,19 +118,19 @@ function Main() {
       <div className="grid max-w-full grid-cols-1 sm:grid-cols-2 gap-16 lg:grid-cols-3 mx-2 md:mx-[15%]">
         <AktualityCard
           image={aktuality1}
-          link="/"
+          link="/aktuality/rozsah-vyzivovacej-povinnosti"
           title="Rozsah vyživovacej povinnosti"
           text="Rozsah vyživovacej povinnosti Základom pre určenie výšky výživného sú odôvodnené potreby oprávneného (ten, kto má nárok na výživné) a schopnosti, možnosti a majetkové..."
         />
         <AktualityCard
           image={aktuality2}
-          link="/"
+          link="/aktuality/dokazna-povinnost-danoveho-subjektu"
           title="Dôkazná povinnosť daňového subjektu v daňovej kontrole"
           text="Dôkazná povinnosť daňové subjektu v daňovej kontrole v prípade nadmerného odpočtu DPH V prípade, že firma ako daňový subjekt disponuje..."
         />
         <AktualityCard
           image={aktuality3}
-          link="/"
+          link="/aktuality/najom-priestoru-sluziaceho-na-podnikanie-podla-noveho-obcianskeho-zakonika-cr"
           title="Nájom priestoru slúžiaceho na podnikanie podľa nového Občianskeho zákoníka v ČR"
           text="Ustanovení o nájmu prostoru sloužíciho k podnikání Ustanovení o nájmu prostoru sloužíciho k podnikání se vztahují na nájem prostoru nebo..."
         />

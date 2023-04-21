@@ -29,10 +29,10 @@ function Footer() {
               <span className="text-red-500">R</span>ýchle odkazy
             </h3>
             <div className="flex flex-col space-y-4 text-sm">
-              <Link to="/">Občianske právo</Link>
-              <Link to="/">Vymáhanie pohľadávok</Link>
-              <Link to="/">Služby pre firmy</Link>
-              <Link to="/">Služby pre občanov</Link>
+              <Link to="/podla-odvetvia/obcianske-pravo">Občianske právo</Link>
+              <Link to="/sluzby/vymahanie-pohladavok">Vymáhanie pohľadávok</Link>
+              <Link to="/sluzby/sluzby-pre-firmy">Služby pre firmy</Link>
+              <Link to="/sluzby/sluzby-pre-obcanov">Služby pre občanov</Link>
             </div>
             <div className="flex flex-col space-y-2"></div>
           </div>

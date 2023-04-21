@@ -3,7 +3,7 @@ import React from 'react';
 
 function AktualityCard({ image, title, text, link }: { image: string; title: string; text: string; link: string }) {
   return (
-    <div className="flex flex-col flex-1 w-full space-y-3 ">
+    <div className="flex flex-col flex-1 w-full space-y-3">
       <img className="h-[50%] object-cover" src={image} alt={title} />
       <Link className="px-2 text-2xl font-semibold" to={link}>
         {title}

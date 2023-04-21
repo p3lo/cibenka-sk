@@ -1,35 +1,37 @@
 import type { LoaderArgs } from '@remix-run/node';
+import { redirect } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, isRouteErrorResponse, useLoaderData, useRouteError } from '@remix-run/react';
 import { marked } from 'marked';
 import React from 'react';
 import invariant from 'tiny-invariant';
-import { getAktuality } from '~/lib/utils';
+import { getPodlaOdvetvia } from '~/lib/utils';
 
 export const loader = async ({ params }: LoaderArgs) => {
-  const post = getAktuality(params.slug!);
+  if (!params.slug) return redirect('/');
+  const post = getPodlaOdvetvia(params.slug!);
   invariant(post, `Post not found: ${params.slug}`);
 
   const html = marked(post.markdown_text);
   return json({ html });
 };
 
-function Aktualita() {
+function PodlaOdvetvia() {
   const { html } = useLoaderData<typeof loader>();
   return (
     <div className="flex flex-col space-y-2">
-      <Link to="/aktuality" className="flex items-end justify-end text-xs opacity-50">
-        ← Späť na aktuality
+      <Link to="/" className="flex items-end justify-end text-xs opacity-50">
+        ← Domov
       </Link>
       <div
-        className="prose max-w-none prose-h1:text-2xl prose-h2:text-xl prose-h2:font-semibold prose-h1:font-semibold prose-p:text-sm"
+        className="prose max-w-none prose-ul:text-sm prose-h1:text-2xl prose-h2:text-xl prose-h2:font-semibold prose-h1:font-semibold prose-p:text-sm"
         dangerouslySetInnerHTML={{ __html: html }}
       ></div>
     </div>
   );
 }
 
-export default Aktualita;
+export default PodlaOdvetvia;
 
 export function ErrorBoundary() {
   const error = useRouteError();
