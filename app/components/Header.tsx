@@ -9,6 +9,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from './ui/NavMenu';
+import logo from '../images/cropped-cibo-2-2.png';
 
 function Header() {
   return (
@@ -36,7 +37,7 @@ function Header() {
       <div className="flex w-full border-b shadow drop-shadow-md" />
       <div className="flex items-center justify-center my-5">
         <Link to="/">
-          <img alt="Logo" src="assets/cropped-cibo-2-2.png" />
+          <img alt="Logo" src={logo} />
         </Link>
       </div>
       <div className="mx-2 my-[0.5px] md:mx-[15%] flex flex-col">
