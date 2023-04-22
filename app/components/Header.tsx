@@ -19,12 +19,12 @@ function Header() {
     <div className="flex flex-col md:hidden">
       <div className="flex items-center justify-between mx-5">
         <Link to="/">
-          <img alt="Logo" src={logo} />
+          <img className="w-[60%]" alt="Logo" src={logo} />
         </Link>
 
         <Sheet>
           <SheetTrigger asChild>
-            <RxHamburgerMenu />
+            <RxHamburgerMenu className="w-8 h-8 font-bold" />
           </SheetTrigger>
           <SheetContent className="overflow-y-scroll" position="right" size="xl">
             <SheetHeader>
