@@ -105,7 +105,7 @@ function Main() {
 
       <div className="flex flex-col w-full h-40 space-y-5 bg-slate-200">
         <h2 className="flex items-center justify-center py-5 text-3xl font-semibold">SLUŽBY PRE FIRMY</h2>
-        <div className="flex justify-center space-x-5">
+        <div className="flex justify-center space-x-1 md:space-x-5">
           <Link to="/sluzby/zalozenie-spolocnosti">Založenie spoločnosti (SRO)</Link>
           <Separator className="bg-black" orientation="vertical" />
           <Link to="/sluzby/zalozenie-zivnosti">Založenie živnosti (SZČO)</Link>

@@ -8,7 +8,7 @@ function Footer() {
   const mapHeight = '150px';
   return (
     <div className="grow bg-slate-100">
-      <div className="h-52 mx-2 my-10 md:mx-[15%] flex ">
+      <div className="mx-2 my-10 md:mx-[15%] flex ">
         <div className="grid w-full md:grid-cols-2 lg:grid-cols-3 justify-evenly">
           <div className="flex flex-col mb-8 space-y-8">
             <h3 className="pl-5 text-lg font-semibold">

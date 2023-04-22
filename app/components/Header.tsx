@@ -17,7 +17,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './
 function Header() {
   const Drawer = () => (
     <div className="flex flex-col md:hidden">
-      <div className="flex items-center justify-between mx-5">
+      <div className="flex items-center justify-between">
         <Link to="/">
           <img alt="Logo" src={logo} />
         </Link>
@@ -26,7 +26,7 @@ function Header() {
           <SheetTrigger asChild>
             <RxHamburgerMenu className={`${navigationMenuTriggerStyle()}`} />
           </SheetTrigger>
-          <SheetContent className="overflow-y-scroll" position="right" size="lg">
+          <SheetContent className="overflow-y-scroll" position="right" size="xl">
             <SheetHeader>
               <SheetTitle>Menu</SheetTitle>
             </SheetHeader>
