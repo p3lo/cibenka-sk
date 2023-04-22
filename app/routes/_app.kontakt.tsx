@@ -8,6 +8,7 @@ import { Checkbox } from '~/components/ui/CheckBox';
 import { Input } from '~/components/ui/Input';
 import { Label } from '~/components/ui/Label';
 import { Textarea } from '~/components/ui/TextArea';
+import { getMailer } from '~/lib/email.server';
 
 export async function action({ request }: ActionArgs) {
   const cloudflareSecret = process.env.CLOUDFLARE_SECRET;
@@ -30,6 +31,8 @@ export async function action({ request }: ActionArgs) {
       return json({ error: true });
     }
   }
+
+  getMailer();
   return json({ error: false });
 }
 
