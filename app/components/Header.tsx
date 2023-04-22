@@ -10,9 +10,510 @@ import {
   navigationMenuTriggerStyle,
 } from './ui/NavMenu';
 import logo from '../images/cropped-cibo-2-2.png';
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from './ui/Drawer';
+import { Button } from './ui/Button';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { useMediaQuery } from 'react-responsive';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/Accordion';
+import { ScrollArea } from './ui/ScrollArea';
 
 function Header() {
-  return (
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
+  const drawer = () => {
+    return (
+      <div className="flex flex-col">
+        <div className="flex items-center justify-between mx-5">
+          <Link to="/">
+            <img alt="Logo" src={logo} />
+          </Link>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <RxHamburgerMenu className={`${navigationMenuTriggerStyle()}`} />
+            </SheetTrigger>
+            <SheetContent className="overflow-y-scroll" position="right" size="lg">
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col w-full my-10 space-y-5">
+                <Accordion type="single" collapsible className="w-full space-y-5">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger className={navigationMenuTriggerStyle()}>Služby pre občanov</AccordionTrigger>
+                    <AccordionContent>
+                      <div className="flex flex-col">
+                        <h2 className="flex items-center justify-center w-full mt-5 font-semibold">NEHNUTEĽNOSTI</h2>
+                        <div className="flex w-full">
+                          <Link to="/sluzby/kupna-zmluva" className={`grow ${navigationMenuTriggerStyle()}`}>
+                            Kúpna zmluva
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link to="/sluzby/darovacia-zmluva" className={`grow ${navigationMenuTriggerStyle()}`}>
+                            Darovacia zmluva
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/vysporiadanie-bezpodieloveho-spoluvlastnictva-manzelov"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Vysporiadanie podielového spoluvlastníctva
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link to="/sluzby/navrhy-na-kataster" className={`grow ${navigationMenuTriggerStyle()}`}>
+                            Návrhy na kataster
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link to="/sluzby/vecne-bremena" className={`grow ${navigationMenuTriggerStyle()}`}>
+                            Vecné bremená
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link to="/sluzby/najomna-zmluva" className={`grow ${navigationMenuTriggerStyle()}`}>
+                            Nájomná zmluva
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link
+                            to="/sluzby/slovensky-pozemkovy-fond"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Slovenský pozemkový fond (SPF)
+                          </Link>
+                        </div>
+                        <h2 className="flex items-center justify-center w-full mt-5 font-semibold">RODINNÉ PRÁVO</h2>
+                        <div className="flex w-full">
+                          <Link
+                            to="/sluzby/navrh-na-rozvod"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Návrh na rozvod
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link
+                            to="/sluzby/zverenie-dietata-do-starostlivosti-pri-rozvode"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zverenie dieťaťa do starostlivosti pri rozvode
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/rozsah-vyzivovacej-povinnosti"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Výživné
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/vysporiadanie-bezpodieloveho-spoluvlastnictva-manzelov"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Vysporiadanie bezpodielového spoluvlastníctva manželov
+                          </Link>
+                        </div>
+                        <h2 className="flex items-center justify-center w-full mt-5 font-semibold">DEDIČSKÉ PRÁVO</h2>
+                        <div className="flex w-full">
+                          <Link
+                            to="/sluzby/dozivotne-pravo-uzivania"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Doživotné právo užívania
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link to="/sluzby/zavet" className={`grow text-center ${navigationMenuTriggerStyle()}`}>
+                            Závet
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/prava-opomenuteho-dedica"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Práva opomenutého dediča
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/obnova-dedicskeho-konania"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Obnova dedičského konania
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zastupenie-vlastnika"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zastúpenie vlastníka
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/slovensky-pozemkovy-fond"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Slovenský pozemkový fond (SPF)
+                          </Link>
+                        </div>
+                        <h2 className="flex items-center justify-center w-full mt-5 font-semibold">ĎALŠIE SLUŽBY</h2>
+                        <div className="flex w-full">
+                          <Link
+                            to="/sluzby/elektronicke-podania-na-organy-verejnej-spravy"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Elektronické podania na orgány verejnej správy
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link
+                            to="/sluzby/zastupovanie-pred-sudmi"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zastupovanie pred súdmi
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/vymahanie-pohladavok"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Vymáhanie pohľadávok
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zalozenie-obcianskeho-zdruzenia-a-nadacie"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Založenie občianského združenia a nadácie
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/povolenie-na-pobyt-cudzincov-na-uzemi-sr"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Povolenie na pobyt cudzincov na území SR
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/pracovne-zmluvy-a-skoncenie-pracovneho-pomeru"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Pracovné zmluvy a skončenie pracovného pomeru
+                          </Link>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger className={navigationMenuTriggerStyle()}>
+                      Služby pre podnikateľov
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="flex flex-col">
+                        <h2 className="flex items-center justify-center w-full mt-5 font-semibold">
+                          OBCHODNÉ SPOLOČNOSTI
+                        </h2>
+                        <div className="flex w-full">
+                          <Link
+                            to="/sluzby/zalozenie-spolocnosti"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Založenie spoločnosti
+                          </Link>
+                        </div>
+                        <div className="flex w-full">
+                          <Link
+                            to="/sluzby/zmeny-pri-zakladani-sro"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zmeny pri zakladaní s.r.o.
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zmeny-v-spolocnosti"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zmeny v spoločnosti
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zrusenie-spolocnosti"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zrušenie spoločnosti
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zrusenie-spolocnosti-bez-likvidacie"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zrušenie spoločnosti bez likvidácie (zlúčenie spoločností, fúzia)
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link to="/sluzby/konkurz" className={`grow text-center ${navigationMenuTriggerStyle()}`}>
+                            Konkurz
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/predaj-podniku-alebo-jeho-casti"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Predaj podniku alebo jeho časti
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/virtualne-sidlo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Virtuálne sídlo
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/fuzie-akvizicie"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Fúzie/akvizície
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zalozenie-spolocnosti-v-eu"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Založenie spoločnosti v EU
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zalozenie-offshore-spolocnosti"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Založenie offshore spoločnosti
+                          </Link>
+                        </div>
+                        <h2 className="flex items-center justify-center w-full mt-5 font-semibold">GDPR A RPVS</h2>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/vseobecne-nariadenie-na-ochranu-osobnych-udajov"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Všeobecné nariadenie na ochranu osobných údajov (GDRP)
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zapis-konecneho-uzivatela-vyhod-do-obchodneho-registra"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zápis konečného užívateľa výhod do obchodného registra
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/register-partnerov-verejneho-sektora-rpvs"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Register partnerov verejného sektora, rpvs
+                          </Link>
+                        </div>
+                        <h2 className="flex items-center justify-center w-full mt-5 font-semibold">POHĽADÁVKY</h2>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/elektronicky-platobny-rozkaz-do-10-dni"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Elektronický platobný rozkaz do 10 dní
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zabezpecenie-zavazkov-dlznika"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zabezpečenie záväzkov dlžníka
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/uznanie-a-pristupenie-k-dlhu"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Uznanie a pristúpenie k dlhu
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/navrh-na-vykonanie-exekucie"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Návrh na vykonanie exekúcie
+                          </Link>
+                        </div>
+                        <h2 className="flex items-center justify-center w-full mt-5 font-semibold">OSTATNÉ SLUŽBY</h2>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/danove-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Daňové právo
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/stavebne-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Stavebné právo
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zmluvy-o-dielo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zmluvy o dielo
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/zapis-dopravcov-do-obchodneho-registra"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Zápis dopravcov do obchodného registra
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/povolenie-na-pobyt-a-pracovne-povolenie-cudzincov-na-uzemi-sr"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            Povolenie na pobyt a pracovné povolenie cudzincov na území SR
+                          </Link>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger className={navigationMenuTriggerStyle()}>Služby podľa odvetvia</AccordionTrigger>
+                    <AccordionContent>
+                      <div className="flex flex-col">
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/obcianske-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            OBČIANSKE PRÁVO
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/obchodne-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            OBCHODNÉ PRÁVO
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/danove-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            DAŇOVÉ PRÁVO
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/exekucne-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            EXEKUČNÉ PRÁVO
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/pracovne-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            RACOVNÉ PRÁVO
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/dedicske-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            DEDIČSKÉ PRÁVO
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/stavebne-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            STAVEBNÉ PRÁVO
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/konkurzne-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            KONKURZNÉ PRÁVO
+                          </Link>
+                        </div>
+                        <div className="flex w-full flex-nowrap">
+                          <Link
+                            to="/sluzby/spravne-pravo"
+                            className={`grow text-center ${navigationMenuTriggerStyle()}`}
+                          >
+                            SPRÁVNE PRÁVO
+                          </Link>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+                <div className="flex w-full border-b">
+                  <Link to="/aktuality" className={`grow ${navigationMenuTriggerStyle()}`}>
+                    Aktuality
+                  </Link>
+                </div>
+                <div className="flex w-full border-b">
+                  <Link to="/kontakt" className={`grow ${navigationMenuTriggerStyle()}`}>
+                    Kontakt
+                  </Link>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+        <div className="flex w-full border-b shadow drop-shadow-md" />
+      </div>
+    );
+  };
+
+  return !isDesktop ? (
+    drawer()
+  ) : (
     <div className="flex flex-col">
       <div className="h-10 mx-2 my-[0.5px] md:mx-[15%] flex justify-between text-xs">
         <div className="flex space-x-5">
@@ -34,7 +535,9 @@ function Header() {
           </a>
         </div>
       </div>
+
       <div className="flex w-full border-b shadow drop-shadow-md" />
+
       <div className="flex items-center justify-center my-5">
         <Link to="/">
           <img alt="Logo" src={logo} />
@@ -50,7 +553,7 @@ function Header() {
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:grid-cols-4 lg:w-[700px] xl:w-[900px] 2xl:w-[1100px] text-sm">
                   <div className="flex flex-col space-y-2">
-                    <h3 className="font-semibold">NEHNUTELNOSTI</h3>
+                    <h3 className="font-semibold">NEHNUTEĽNOSTI</h3>
                     <div className="flex flex-col space-y-1 text-sm">
                       <Link className="hover:bg-slate-50" to="/sluzby/kupna-zmluva">
                         Kúpna zmluva
@@ -289,7 +792,7 @@ function Header() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link className={navigationMenuTriggerStyle()} to="/">
+              <Link className={navigationMenuTriggerStyle()} to="/kontakt">
                 Kontakt
               </Link>
             </NavigationMenuItem>
