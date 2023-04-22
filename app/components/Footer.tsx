@@ -1,8 +1,11 @@
 import { Link } from '@remix-run/react';
 import React from 'react';
 import { MdEmail, MdPhone } from 'react-icons/md';
+import { Map } from './map.client';
+import { ClientOnly } from 'remix-utils';
 
 function Footer() {
+  const mapHeight = '150px';
   return (
     <div className="grow bg-slate-100">
       <div className="h-52 mx-2 my-10 md:mx-[15%] flex ">
@@ -40,7 +43,11 @@ function Footer() {
             <h3 className="pl-5 text-lg font-semibold">
               <span className="text-red-500">K</span>de nás nájdete
             </h3>
-            <div className="flex flex-col space-y-2"></div>
+            <div className="flex flex-col space-y-2">
+              <ClientOnly fallback={<div id="skeleton" style={{ height: mapHeight, background: '#d1d1d1' }} />}>
+                {() => <Map height={mapHeight} />}
+              </ClientOnly>
+            </div>
           </div>
         </div>
       </div>

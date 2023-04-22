@@ -10,12 +10,10 @@ import {
   navigationMenuTriggerStyle,
 } from './ui/NavMenu';
 import logo from '../images/cropped-cibo-2-2.png';
-import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from './ui/Drawer';
-import { Button } from './ui/Button';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui/Drawer';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useMediaQuery } from 'react-responsive';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/Accordion';
-import { ScrollArea } from './ui/ScrollArea';
 
 function Header() {
   const isDesktop = useMediaQuery({

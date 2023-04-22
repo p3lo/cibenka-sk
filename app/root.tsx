@@ -2,7 +2,13 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 import styles from './tailwind.css';
 import type { LinksFunction } from '@remix-run/node';
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: styles },
+  {
+    rel: 'stylesheet',
+    href: 'https://unpkg.com/leaflet@1.8.0/dist/leaflet.css',
+  },
+];
 
 export default function App() {
   return (
