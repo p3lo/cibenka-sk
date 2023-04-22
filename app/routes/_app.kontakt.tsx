@@ -32,7 +32,16 @@ export async function action({ request }: ActionArgs) {
     }
   }
 
-  getMailer();
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const subject = formData.get('subject');
+  const message = formData.get('message');
+
+  if (!name || !email || !subject || !message) {
+    return json({ error: true });
+  }
+
+  getMailer(message.toString(), subject.toString(), email.toString(), name.toString());
   return json({ error: false });
 }
 
@@ -90,19 +99,19 @@ function Kontakt() {
         <Form key={key} method="post" className="flex flex-col space-y-5">
           <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="name">Vaše meno *</Label>
-            <Input type="text" id="name" placeholder="Meno" required />
+            <Input type="text" id="name" placeholder="Meno" name="name" required />
           </div>
           <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="email">Váš email *</Label>
-            <Input type="email" id="email" placeholder="Email" required />
+            <Input type="email" id="email" placeholder="Email" name="email" required />
           </div>
           <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="predmet">Predmet *</Label>
-            <Input type="text" id="predmet" placeholder="Predmet" required />
+            <Input type="text" id="predmet" placeholder="Predmet" name="subject" required />
           </div>
           <div className="grid w-full gap-1.5">
             <Label htmlFor="message">Vaša správa *</Label>
-            <Textarea placeholder="Správa" id="message" required />
+            <Textarea className="whitespace-pre-wrap" placeholder="Správa" id="message" required name="message" />
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="terms2" defaultChecked={false} onCheckedChange={changeChecked} />

@@ -1,6 +1,8 @@
+import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
+import { Email } from '~/components/email';
 
-export function getMailer() {
+export function getMailer(text: string, subject: string, from: string, name: string) {
   let transporter = nodemailer.createTransport({
     host: process.env.MAIL_SERVER,
     port: 587,
@@ -14,11 +16,15 @@ export function getMailer() {
       rejectUnauthorized: false,
     },
   });
-  transporter.verify(function (error, success) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Server is ready to take our messages');
-    }
-  });
+
+  const emailHtml = render(Email({ text, name }));
+
+  const options = {
+    from: from,
+    to: 'office@cibenka.sk',
+    subject: `Dotaz z webu cibenka.sk - ${subject}`,
+    html: emailHtml,
+  };
+
+  transporter.sendMail(options);
 }
