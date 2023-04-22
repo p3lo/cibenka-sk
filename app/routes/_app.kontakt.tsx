@@ -41,6 +41,10 @@ function Kontakt() {
   function changeChecked() {
     setChecked((prev) => !prev);
   }
+  React.useEffect(() => {
+    setCfStatus(false);
+    setChecked(false);
+  }, [key]);
   return (
     <div className="mx-2 my-10 md:mx-[15%] flex flex-col">
       <div className="flex flex-col space-y-5">
