@@ -135,7 +135,11 @@ function Kontakt() {
               Súhlasím so spracovaním osobných údajov
             </label>
           </div>
-          <Turnstile siteKey="0x4AAAAAAAELF4hgDHO9jQhV" onSuccess={() => setCfStatus(true)} />
+          <Turnstile
+            siteKey="0x4AAAAAAAELF4hgDHO9jQhV"
+            onSuccess={() => setCfStatus(true)}
+            options={{ theme: 'light' }}
+          />
           {cfStatus && (
             <Button type="submit" disabled={!checked}>
               Odoslať
