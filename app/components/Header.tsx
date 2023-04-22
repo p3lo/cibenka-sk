@@ -17,14 +17,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './
 function Header() {
   const Drawer = () => (
     <div className="flex flex-col md:hidden">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mx-5">
         <Link to="/">
           <img alt="Logo" src={logo} />
         </Link>
 
         <Sheet>
           <SheetTrigger asChild>
-            <RxHamburgerMenu className={`${navigationMenuTriggerStyle()}`} />
+            <RxHamburgerMenu />
           </SheetTrigger>
           <SheetContent className="overflow-y-scroll" position="right" size="xl">
             <SheetHeader>
