@@ -8,6 +8,7 @@ export const links: LinksFunction = () => [
     rel: 'stylesheet',
     href: 'https://unpkg.com/leaflet@1.8.0/dist/leaflet.css',
   },
+  { rel: 'icon', href: 'https://cibenka.sk/favicon.ico?v=2' },
 ];
 
 export default function App() {
