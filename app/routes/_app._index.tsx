@@ -87,7 +87,7 @@ function Main() {
         </SwiperSlide>
       </Swiper>
 
-      <div className="grid max-w-full grid-cols-2 gap-16 lg:grid-cols-4 mx-2 md:mx-[15%]">
+      <div className="grid max-w-full grid-cols-2 gap-2 md:gap-8 md:grid-cols-3 lg:gap-16 lg:grid-cols-4 mx-2 md:mx-[15%]">
         <InfoCard
           image={obcianskepravo}
           text="Pomáhame občanom s nájomnými zmluvami, darovacími zmluvami, s dedičským konaním, vymáhaním pohľadávok, so zastupovaním v súdnom, ako i exekučnom konaní."
