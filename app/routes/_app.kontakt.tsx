@@ -1,5 +1,5 @@
 import { Turnstile } from '@marsidev/react-turnstile';
-import type { ActionArgs } from '@remix-run/node';
+import type { ActionArgs, V2_MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, Link, useActionData, useLocation } from '@remix-run/react';
 import React from 'react';
@@ -9,6 +9,19 @@ import { Input } from '~/components/ui/Input';
 import { Label } from '~/components/ui/Label';
 import { Textarea } from '~/components/ui/TextArea';
 import { getMailer } from '~/lib/email.server';
+
+export const meta: V2_MetaFunction = () => {
+  return [
+    {
+      title: 'Kontakt - Advokátska kancelária JUDr. Jaroslav Čibenka s.r.o.',
+    },
+    {
+      name: 'description',
+      content:
+        'Získajte bezplatnú odpoveď na Vašu právnu otázku prostredníctvom formulára na našej webovej stránke. Ak je to možné, odpovieme Vám jednoducho. Ak potrebujete vyhotovenie zmluvy, radi Vám poskytneme informáciu o odmene za prípadné vyhotovenie takejto listiny. Navštívte nás ešte dnes a využite profesionálne služby našej advokátskej kancelárie.',
+    },
+  ];
+};
 
 export async function action({ request }: ActionArgs) {
   const cloudflareSecret = process.env.CLOUDFLARE_SECRET;

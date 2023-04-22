@@ -4,7 +4,16 @@ import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 
 export const meta: V2_MetaFunction = () => {
-  return [{ title: 'Cibenka.sk' }];
+  return [
+    {
+      title: 'Advokátska kancelária JUDr. Jaroslav Čibenka s.r.o.',
+    },
+    {
+      name: 'description',
+      content:
+        'Sme advokátska kancelária poskytujúca právne služby a právne poradenstvo v oblasti slovenského a českého práva.',
+    },
+  ];
 };
 
 export default function Index() {

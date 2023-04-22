@@ -1,10 +1,23 @@
-import type { LoaderArgs } from '@remix-run/node';
+import type { LoaderArgs, V2_MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import { marked } from 'marked';
 import React from 'react';
 import invariant from 'tiny-invariant';
 import { getInfo } from '~/lib/utils';
+
+export const meta: V2_MetaFunction = () => {
+  return [
+    {
+      title: 'O nás - Advokátska kancelária JUDr. Jaroslav Čibenka s.r.o.',
+    },
+    {
+      name: 'description',
+      content:
+        'Sme advokátska kancelária poskytujúca právne služby a právne poradenstvo v oblasti slovenského a českého práva.',
+    },
+  ];
+};
 
 export const loader = async ({ params }: LoaderArgs) => {
   const post = getInfo('o-nas');

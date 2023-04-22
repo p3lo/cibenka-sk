@@ -15,6 +15,20 @@ import nehnutelnosti from '../images/nehnutelnosti.jpeg';
 import aktuality1 from '../images/akt-1.jpeg';
 import aktuality2 from '../images/akt-2.jpeg';
 import aktuality3 from '../images/akt-3.jpeg';
+import type { V2_MetaFunction } from '@remix-run/node';
+
+export const meta: V2_MetaFunction = () => {
+  return [
+    {
+      title: 'Advokátska kancelária JUDr. Jaroslav Čibenka s.r.o.',
+    },
+    {
+      name: 'description',
+      content:
+        'Sme advokátska kancelária poskytujúca právne služby a právne poradenstvo v oblasti slovenského a českého práva.',
+    },
+  ];
+};
 
 function Main() {
   return (
