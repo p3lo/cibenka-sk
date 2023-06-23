@@ -132,6 +132,24 @@ function Main() {
       <div className="grid max-w-full grid-cols-1 sm:grid-cols-2 gap-16 lg:grid-cols-3 mx-2 md:mx-[15%]">
         <AktualityCard
           image={aktuality1}
+          link="/sluzby/kupna-zmluva"
+          title="Kúpna zmluva a zodpovednosť predávajúceho za vady"
+          text="Podľa § 596 zákona č.40/1964 Zb. Občiansky zákonník Ak vec má vady, o ktorých predávajúci vie, je povinný kupujúceho pri dojednávaní kúpnej zmluvy na ne upozorniť...."
+        />
+        <AktualityCard
+          image={aktuality2}
+          link="/aktuality/rozsah-vyzivovacej-povinnosti"
+          title="Rozsah vyživovacej povinnosti"
+          text="Rozsah vyživovacej povinnosti Základom pre určenie výšky výživného sú odôvodnené potreby oprávneného (ten, kto má nárok na výživné) a schopnosti, možnosti a majetkové..."
+        />
+        <AktualityCard
+          image={aktuality3}
+          link="/aktuality/dokazna-povinnost-danoveho-subjektu"
+          title="Dôkazná povinnosť daňového subjektu v daňovej kontrole"
+          text="Dôkazná povinnosť daňové subjektu v daňovej kontrole v prípade nadmerného odpočtu DPH V prípade, že firma ako daňový subjekt disponuje..."
+        />
+        {/* <AktualityCard
+          image={aktuality1}
           link="/aktuality/rozsah-vyzivovacej-povinnosti"
           title="Rozsah vyživovacej povinnosti"
           text="Rozsah vyživovacej povinnosti Základom pre určenie výšky výživného sú odôvodnené potreby oprávneného (ten, kto má nárok na výživné) a schopnosti, možnosti a majetkové..."
@@ -147,7 +165,7 @@ function Main() {
           link="/aktuality/najom-priestoru-sluziaceho-na-podnikanie-podla-noveho-obcianskeho-zakonika-cr"
           title="Nájom priestoru slúžiaceho na podnikanie podľa nového Občianskeho zákoníka v ČR"
           text="Ustanovení o nájmu prostoru sloužíciho k podnikání Ustanovení o nájmu prostoru sloužíciho k podnikání se vztahují na nájem prostoru nebo..."
-        />
+        /> */}
       </div>
     </div>
   );
