@@ -6,7 +6,7 @@ export function getMailer(text: string, subject: string, from: string, name: str
   let transporter = nodemailer.createTransport({
     host: process.env.MAIL_SERVER,
     port: 465,
-    secure: true, // upgrade later with STARTTLS
+    secure: false, // upgrade later with STARTTLS
     auth: {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASSWORD,
