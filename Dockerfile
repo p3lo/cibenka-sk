@@ -1,68 +1,51 @@
 # base node image
 FROM node:20-bullseye-slim as base
 
+WORKDIR /myapp
+
+# set for base and all layer that inherit from it
+ENV NODE_ENV production
+
 # Install openssl for Prisma
-RUN apt-get update && apt-get install -y openssl
+RUN apt-get update && apt-get install -y openssl sqlite3
 
-# Install all node_modules, including dev dependencies
-FROM base as deps
+# Update npm to latest version
+RUN npm install -g npm
 
-RUN mkdir /app
-WORKDIR /app
-
-ADD package.json package-lock.json ./
-RUN npm install --production=false
-
-# Setup production node_modules
-FROM base as production-deps
-
-RUN mkdir /app
-WORKDIR /app
-
-COPY --from=deps /app/node_modules /app/node_modules
-ADD package.json package-lock.json ./
-RUN npm prune --production
-
-# Build the app
+# Throw-away build stage to reduce size of final image
 FROM base as build
 
-ENV NODE_ENV=production
+# Install packages needed to build node modules
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
-RUN mkdir /app
-WORKDIR /app
+# Install node modules
+COPY --link package-lock.json package.json ./
+RUN npm ci --include=dev
 
-COPY --from=deps /app/node_modules /app/node_modules
+# Copy application code
+COPY --link . .
 
-# If we're using Prisma, uncomment to cache the prisma schema
-# ADD prisma .
-# RUN npx prisma generate
-
-#RUN npx prisma migrate deploy
-
-ADD . .
-# ENV DATABASE_URL=file:/app/prisma/dev.db
-# RUN npx prisma db push
-# RUN node --require esbuild-register prisma/seed.ts
+# Build application
+#RUN npx prisma generate
 RUN npm run build
+
+# Remove development dependencies
+RUN npm prune --omit=dev
 
 # Finally, build the production image with minimal footprint
 FROM base
 
-# ENV DATABASE_URL=file:/app/prisma/dev.db
-ENV NODE_ENV=production
+#ENV DATABASE_URL=file:/data/sqlite.db
+ENV NODE_ENV="production"
 
-RUN mkdir /app
-WORKDIR /app
+# add shortcut for connecting to database CLI
+RUN echo "#!/bin/sh\nset -x\nsqlite3 \$DATABASE_URL" > /usr/local/bin/database-cli && chmod +x /usr/local/bin/database-cli
 
-COPY --from=production-deps /app/node_modules /app/node_modules
+COPY --from=build /myapp /myapp
 
-# Uncomment if using Prisma
-# COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
+EXPOSE 3000
 
-COPY --from=build /app/build /app/build
-COPY --from=build /app/public /app/public
-COPY --from=build /app/package.json /app/package.json
-COPY --from=build /app/start.sh /app/start.sh
-# COPY --from=build /app/prisma /app/prisma
-RUN chmod +x /app/start.sh
-ENTRYPOINT [ "./start.sh" ]
+#RUN npx prisma migrate deploy
+
+CMD [ "npm", "start" ]
