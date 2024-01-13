@@ -1,13 +1,11 @@
-import type { LoaderArgs } from '@remix-run/node';
-import { redirect } from '@remix-run/node';
-import { json } from '@remix-run/node';
-import { Link, isRouteErrorResponse, useLoaderData, useRouteError } from '@remix-run/react';
+import type { LoaderFunctionArgs } from '@remix-run/node';
+import { Link, isRouteErrorResponse, json, redirect, useLoaderData, useRouteError } from '@remix-run/react';
 import { marked } from 'marked';
 import React from 'react';
 import invariant from 'tiny-invariant';
 import { getPodlaOdvetvia } from '~/lib/utils';
 
-export const loader = async ({ params }: LoaderArgs) => {
+export const loader = async ({ params }: LoaderFunctionArgs) => {
   if (!params.slug) return redirect('/');
   const post = getPodlaOdvetvia(params.slug!);
   invariant(post, `Post not found: ${params.slug}`);

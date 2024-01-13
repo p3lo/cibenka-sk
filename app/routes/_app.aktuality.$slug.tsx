@@ -1,4 +1,4 @@
-import type { LoaderArgs } from '@remix-run/node';
+import type { LoaderFunctionArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, isRouteErrorResponse, useLoaderData, useRouteError } from '@remix-run/react';
 import { marked } from 'marked';
@@ -6,7 +6,7 @@ import React from 'react';
 import invariant from 'tiny-invariant';
 import { getAktuality } from '~/lib/utils';
 
-export const loader = async ({ params }: LoaderArgs) => {
+export const loader = async ({ params }: LoaderFunctionArgs) => {
   const post = getAktuality(params.slug!);
   invariant(post, `Post not found: ${params.slug}`);
 

@@ -21,7 +21,7 @@ export function getMailer(text: string, subject: string, from: string, name: str
   const emailHtml = render(Email({ text, name }));
 
   const options = {
-    from: from,
+    from: process.env.MAIL_USER,
     to: 'office@cibenka.sk',
     subject: `Dotaz z webu cibenka.sk - ${subject}`,
     html: emailHtml,

@@ -1,5 +1,5 @@
 import { Turnstile } from '@marsidev/react-turnstile';
-import type { ActionArgs, V2_MetaFunction } from '@remix-run/node';
+import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, Link, useActionData, useLocation } from '@remix-run/react';
 import React from 'react';
@@ -10,7 +10,7 @@ import { Label } from '~/components/ui/Label';
 import { Textarea } from '~/components/ui/TextArea';
 import { getMailer } from '~/lib/email.server';
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [
     {
       title: 'Kontakt - Advokátska kancelária JUDr. Jaroslav Čibenka s.r.o.',
@@ -23,7 +23,7 @@ export const meta: V2_MetaFunction = () => {
   ];
 };
 
-export async function action({ request }: ActionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
   const cloudflareSecret = process.env.CLOUDFLARE_SECRET;
   const endpoint = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
   const formData = await request.formData();

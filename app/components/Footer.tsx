@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react';
 import React from 'react';
 import { MdEmail, MdPhone } from 'react-icons/md';
 import { Map } from './map.client';
-import { ClientOnly } from 'remix-utils';
+import { ClientOnly } from 'remix-utils/client-only';
 
 function Footer() {
   const mapHeight = '150px';
