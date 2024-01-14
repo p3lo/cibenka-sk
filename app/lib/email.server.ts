@@ -1,31 +1,24 @@
 import { render } from '@react-email/render';
-import nodemailer from 'nodemailer';
 import { Email } from '~/components/email';
 
 export function getMailer(text: string, subject: string, from: string, name: string) {
-  let transporter = nodemailer.createTransport({
-    host: process.env.MAIL_SERVER,
-    port: 465,
-    secure: true, // upgrade later with STARTTLS
-    auth: {
-      user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASSWORD,
-    },
-    tls: {
-      // do not fail on invalid certs
-      minVersion: 'TLSv1.2',
-      rejectUnauthorized: false,
-    },
-  });
-
   const emailHtml = render(Email({ text, name }));
-
-  const options = {
-    from: process.env.MAIL_USER,
+  const url = 'https://api.mysiacik.com/resend';
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  const data = {
+    from: 'web@cibenka.sk',
     to: 'office@cibenka.sk',
     subject: `Dotaz z webu cibenka.sk - ${subject}`,
     html: emailHtml,
   };
-
-  transporter.sendMail(options);
+  fetch(url, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.error(err));
 }
